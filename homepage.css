@@ -169,17 +169,17 @@ body{
 
 .buttons {
     position: absolute;
-    left: 85%;
-    top: 25%;
+    left: 5%; /* Align with the name and description */
+    top: calc(43% + 10vh); /* Dynamically position below the description */
     z-index: 999;
     margin: 0;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row; /* Arrange buttons in a row */
+    gap: 3vw; /* Dynamic horizontal spacing between buttons */
 }
 
 #about, #projects, #contact {
-    position: relative; /* Allows `top` and `left` to work inside .buttons */
+    position: relative;
     opacity: 0;
     animation: fadeIn 2s ease forwards;
 }
@@ -196,33 +196,36 @@ body{
     animation-delay: 6s;
 }
 
-.button{
+.button {
     position: relative;
     display: inline-block;
-    padding: 15px 45px;
+    padding: 10px 30px; /* Reduced padding for smaller buttons */
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 3px; /* Reduced letter spacing */
     text-decoration: none;
-    font-size: 30px;
+    font-size: clamp(1rem, 2vw, 2.5rem); /* Dynamically scaled smaller font */
     overflow: hidden;
     transition: 0.5s;
-    bottom: 100px;
+    bottom: 0;
     font-family: "exo", sans-serif;
 }
 
 .aboutText, .contactText, .projectsText {
-    color:#0f0;
-    animation: colorchange2 4s linear infinite;
+    color: white;
 }
 
-.button:hover{
+.button:hover {
     color: white;
-    background: black;
+    background: 
+        radial-gradient(circle at 20% 30%, #1a1a1a, transparent 60%),
+        radial-gradient(circle at 80% 70%, #2b2b2b, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgb(32, 31, 31), #000000 70%),
+        conic-gradient(from 180deg at 50% 50%, #1c1c1c, #2e2e2e, #000000, #1c1c1c);;
     box-shadow: 0 0 10px white, 0 0 40px white, 0 0 80px white;
     transition-delay: 1s;
 }
 
-.button span{
+.button span {
     position: absolute;
     display: block;
 }
@@ -232,7 +235,7 @@ body{
     left: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(to right, transparent, #0f0);
+    background: radial-gradient(to right, transparent, #0f0);
     animation: colorchange2 4s linear infinite;
 }
 
@@ -253,7 +256,7 @@ body{
 .button:hover span:nth-child(2) {
     top: 100%;
     transition: 1s;
-    transition-delay:0.25s 
+    transition-delay: 0.25s;
 }
 
 .button span:nth-child(3) {
@@ -264,7 +267,6 @@ body{
     background: linear-gradient(270deg, transparent, #0f0);
     animation: colorchange2 4s linear infinite;
 }
-
 
 .button:hover span:nth-child(3) {
     right: 100%;
@@ -286,6 +288,8 @@ body{
     transition: 1s;
     transition-delay: 0.75s;
 }
+
+
 
 @keyframes colorchange {
     0%{
