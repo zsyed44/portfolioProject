@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Rocker&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: new rocker;
+}
+
+.new-rocker-regular {
+    font-family: "New Rocker", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.logo {
+    display: block;
+    align-items: left;
+    justify-content: left;
+    margin-bottom: 20px;
+}
+
+.wavy {
+    position: relative;
+    -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0, 0, 0, 0.4));
+    margin-bottom: 20px;
+}
+
+.wavy span{
+    position: relative;
+    display: inline-block;
+    color: rgb(111, 0, 255);
+    font-size: 3em;
+    font-weight: 600;
+    animation: animate 1s ease-in-out infinite;
+    animation-delay: calc(0.06s*var(--i));
+}
+
+.text {
+    margin-top: 60px;
+    font-size: 1em;
+    color: rgb(111, 0, 255);
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+    opacity: 0;
+    animation-delay: 3s;
+    animation: fadeIn 3s ease-in;
+}
+
+@keyframes animate {
+
+    0% {
+        transform: translateY(0px);
+        color: rgb(111, 0, 255);
+    }
+
+    20% {
+        transform: translateY(-20px);
+        color: rgb(175, 124, 243);
+
+    }
+
+    40%,100% {
+        transform: translateY(0px);
+        color: rgb(111, 0, 255);
+
+    }
+    
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+    
+}

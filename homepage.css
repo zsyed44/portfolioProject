@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100;1,100&family=Play:wght@400;700&display=swap');
+
+/* FOLLOWING SOURCE CODE WAS TAKEN AND MODIFIED FROM NIKHILIS CODE https://www.youtube.com/watch?v=1c1bhJriwqg */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	min-height: 100vh;
+	background: #000;
+	overflow: hidden;
+}
+
+.container{
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+	z-index: 2;
+}
+
+.container .row{
+	display: inline-flex;
+	margin-top: -32px;
+	margin-left: -50px;
+}
+
+.container .row:nth-child(even){
+	margin-left: 1px;
+}
+
+.container .row .hexagon{
+	position: relative;
+	width: 100px;
+	height: 110px;
+	background: rgb(0, 0, 0);
+	margin: 2px;
+	clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+	transition: 2s;
+}
+
+.container .row .hexagon::before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background: rgba(3, 3, 3, 0.856);
+	pointer-events: none;
+	z-index: 1000;
+}
+
+.cursor{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 200px;
+	height: 200px;
+	background: #0f0;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+	animation: anim 4s linear infinite;
+    pointer-events: none;
+	z-index: 1;
+}
+
+@keyframes anim{
+	0%{
+		filter: hue-rotate(0deg) blur(50px);
+	}
+	100%{
+		filter: hue-rotate(360deg) blur(50px);
+	}
+}
+/* END OF SOURCE CODE */
+
+.logo {
+    position: absolute;
+    top: 4.95%;
+    left: 4.95%;
+    z-index: 999;
+    /* animation: fadeIn 1s; */
+    animation: colorchange2 8s linear infinite;
+    opacity: 0.95;
+}
+
+.exo-font {
+    font-family: "Exo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.name-wrapper {
+    position: absolute;
+    top:  30%;
+    left: 5%;
+    margin: 0;
+    font-size: 4em;
+    z-index: 999;
+    font-family: exo;
+    opacity: 0;
+    animation: fadeIn 3s ease forwards;
+    animation-delay: 1s;
+}
+
+.blurred {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    color: #0f0;
+    cursor: default;
+    white-space: nowrap;
+    font-size: 3em;
+    animation: colorchange 4s linear infinite;
+}
+
+.clear {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    color: #dad5d5;
+    cursor: default;
+    white-space: nowrap;
+    font-size: 3em;
+}
+
+.description-wrapper {
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    margin: 0;
+    font-size: 1.5em;
+    z-index: 999;
+    font-family: exo;
+    opacity: 0;
+    animation: fadeIn 3s ease forwards;
+    animation-delay: 2.5s;
+}
+
+.blurredDesc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    color: #0f0;
+    cursor: default;
+    white-space: nowrap;
+    font-size: 1.5em;
+    animation: colorchange 4s linear infinite;
+}
+
+.clearDesc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    color: #dad5d5;
+    cursor: default;
+    white-space: nowrap;
+    font-size: 1.5em;
+}
+
+.buttons {
+    position: absolute;
+    left: 85%;
+    top: 25%;
+    z-index: 999;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#about, #projects, #contact {
+    position: relative; /* Allows `top` and `left` to work inside .buttons */
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+}
+
+#about {
+    animation-delay: 4s;
+}
+
+#projects {
+    animation-delay: 5s;
+}
+
+#contact {
+    animation-delay: 6s;
+}
+
+.button{
+    position: relative;
+    display: inline-block;
+    padding: 15px 45px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 30px;
+    overflow: hidden;
+    transition: 0.5s;
+    bottom: 100px;
+    font-family: "exo", sans-serif;
+}
+
+.aboutText, .contactText, .projectsText {
+    color:#0f0;
+    animation: colorchange2 4s linear infinite;
+}
+
+.button:hover{
+    color: white;
+    background: black;
+    box-shadow: 0 0 10px white, 0 0 40px white, 0 0 80px white;
+    transition-delay: 1s;
+}
+
+.button span{
+    position: absolute;
+    display: block;
+}
+
+.button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #0f0);
+    animation: colorchange2 4s linear infinite;
+}
+
+.button:hover span:nth-child(1) {
+    left: 100%;
+    transition: 1s;
+}
+
+.button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #0f0);
+    animation: colorchange2 4s linear infinite;
+}
+
+.button:hover span:nth-child(2) {
+    top: 100%;
+    transition: 1s;
+    transition-delay:0.25s 
+}
+
+.button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #0f0);
+    animation: colorchange2 4s linear infinite;
+}
+
+
+.button:hover span:nth-child(3) {
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+.button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #0f0);
+    animation: colorchange2 4s linear infinite;
+}
+
+.button:hover span:nth-child(4) {
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+
+@keyframes colorchange {
+    0%{
+		filter: hue-rotate(0deg) blur(12px);
+	}
+	100%{
+		filter: hue-rotate(360deg) blur(12px);
+	}
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes colorchange2 {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
