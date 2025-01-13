@@ -38,6 +38,94 @@ p {
     color: white;
 }
 
+.text {
+    color: transparent;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    transition: 0.8s;
+}
+
+.text.reveal {
+    color: white;
+    animation: revealText 0.64s ease forwards;
+}
+
+.text:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.text.reveal:Before {
+    background: #4aa039;
+    animation: blockRevealAnimation 0.8s ease forwards;
+}
+
+.image img {
+    max-width: 100%;
+    opacity: 0;
+}
+
+.img::before {
+    content: "";
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.img.reveal:before {
+    background: #4aa039;
+    animation: blockRevealAnimation 0.8s ease forwards;
+}
+
+.img.reveal img {
+    animation: revealImage 0.8s ease forwards;
+}
+
+@keyframes blockRevealAnimation {
+    0% {
+        left: -100%;
+    }
+    40% {
+        left: 0%;
+    }
+    60% {
+        left: 0%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes revealText {
+    0% {
+        color: transparent;
+    }
+    40% {
+        color: transparent;
+    }
+    60%{
+        color: #fff;
+    }
+}
+
+@keyframes revealImage {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+}
+
 
 /* * {
     margin: 0;
