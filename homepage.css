@@ -95,6 +95,44 @@ body{
 
 .name-wrapper {
     position: absolute;
+    top: 30%;
+    left: 5%;
+    margin: 0;
+    font-size: 4vw; /* Size adjusts with viewport width */
+    z-index: 999;
+    font-family: 'Exo', sans-serif;
+    opacity: 0;
+    animation: fadeIn 3s ease forwards, moveAround 10s linear infinite;
+    animation-delay: 1s;
+}
+
+/* Blurred text styling */
+.blurred {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    color: #0f0;
+    cursor: default;
+    white-space: nowrap;
+    font-size: 1em; /* Inherits from .name-wrapper */
+    animation: colorchange 4s linear infinite;
+}
+
+/* Clear text styling */
+.clear {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    color: #dad5d5;
+    cursor: default;
+    white-space: nowrap;
+    font-size: 1em; /* Inherits from .name-wrapper */
+}
+
+/* .name-wrapper {
+    position: absolute;
     top:  30%;
     left: 5%;
     margin: 0;
@@ -127,7 +165,7 @@ body{
     cursor: default;
     white-space: nowrap;
     font-size: 3em;
-}
+} */
 
 .description-wrapper {
     position: absolute;
