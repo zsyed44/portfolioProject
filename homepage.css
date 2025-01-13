@@ -317,3 +317,16 @@ body{
         filter: hue-rotate(360deg);
     }
 }
+
+@keyframes fadeOutPage {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+body.fade-out {
+    animation: fadeOutPage 2s ease-in-out forwards; /* Fade out animation */
+}
