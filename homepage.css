@@ -95,10 +95,10 @@ body{
 
 .name-wrapper {
     position: absolute;
-    top: 30%;
+    top: 30%; /* Name placement relative to the viewport */
     left: 5%;
     margin: 0;
-    font-size: 4vw; /* Size adjusts with viewport width */
+    font-size: clamp(3rem, 5vw, 6rem); /* Prevent font size from getting too large */
     z-index: 999;
     font-family: 'Exo', sans-serif;
     opacity: 0;
@@ -131,52 +131,16 @@ body{
     font-size: 1em; /* Inherits from .name-wrapper */
 }
 
-/* .name-wrapper {
-    position: absolute;
-    top:  30%;
-    left: 5%;
-    margin: 0;
-    font-size: 4em;
-    z-index: 999;
-    font-family: exo;
-    opacity: 0;
-    animation: fadeIn 3s ease forwards;
-    animation-delay: 1s;
-}
-
-.blurred {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    color: #0f0;
-    cursor: default;
-    white-space: nowrap;
-    font-size: 3em;
-    animation: colorchange 4s linear infinite;
-}
-
-.clear {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1001;
-    color: #dad5d5;
-    cursor: default;
-    white-space: nowrap;
-    font-size: 3em;
-} */
-
 .description-wrapper {
     position: absolute;
-    top: 55%;
+    top: 40%; /* Place description below the name dynamically */
     left: 5%;
     margin: 0;
-    font-size: 1.5em;
+    font-size: clamp(1.8rem, 3vw, 4.5rem); /* Prevent font size from getting too large */
     z-index: 999;
-    font-family: exo;
+    font-family: 'Exo', sans-serif;
     opacity: 0;
-    animation: fadeIn 3s ease forwards;
+    animation: fadeIn 3s ease forwards, moveAroundDesc 10s linear infinite;
     animation-delay: 2.5s;
 }
 
@@ -188,7 +152,7 @@ body{
     color: #0f0;
     cursor: default;
     white-space: nowrap;
-    font-size: 1.5em;
+    font-size: 1em; /* Inherits font size from .description-wrapper */
     animation: colorchange 4s linear infinite;
 }
 
@@ -200,7 +164,7 @@ body{
     color: #dad5d5;
     cursor: default;
     white-space: nowrap;
-    font-size: 1.5em;
+    font-size: 1em; /* Inherits font size from .description-wrapper */
 }
 
 .buttons {
