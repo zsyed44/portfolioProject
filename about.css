@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    display: flex;
+    justify-content: flex-start; /* Align to the top-left corner */
+    align-items: flex-start; /* Align to the top-left corner */
+    height: 100vh;
+    background: #000;
+    overflow: hidden;
+  }
+
+  .container {
+    position: absolute;
+    top: 15%; /* Adjust positioning */
+    right: 10%; /* Adjust positioning */
+    transform: scale(0.5); /* Scale down the entire animation */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .circle {
+    position: absolute;
+    background: transparent;
+    width: calc(var(--i) * 2vmin); /* Adjust circle size */
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid rgb(0, 255, 13); /* Thinner border */
+    transform-style: preserve-3d;
+    transform: rotateX(70deg) translateZ(30px); /* Adjust Z-translation */
+    animation: animate 3s ease-in-out calc(var(--i) * 0.08s) infinite;
+    box-shadow: 0 0 8px rgb(124, 124, 124),
+                inset 0 0 8px rgb(124, 124, 124); /* Adjusted shadow */
+  }
+
+  @keyframes animate {
+    0%, 100% {
+      transform: rotateX(70deg) translateZ(30px) translateY(0);
+      filter: hue-rotate(0);
+    }
+
+    50% {
+      transform: rotateX(70deg) translateZ(30px) translateY(-20vmin); /* Adjusted motion */
+      filter: hue-rotate(360deg);
+    }
+  }
